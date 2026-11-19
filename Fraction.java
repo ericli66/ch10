@@ -30,7 +30,7 @@ public class Fraction {
         return numerator;
     }
 
-    public int getDen0m() {
+    public int getDenom() {
         return denominator;
     }
 
@@ -55,5 +55,12 @@ public class Fraction {
             denominator = 1;
             System.out.println("Error: denominator cannot be zero");
         }
+	}
+	
+	public static Fraction multiply(Fraction a, Fraction b) {
+		int num = a.getNum() * b.getNum();
+		int denom = a.getDenom() * b.getDenom();
+		Fraction x = new Fraction(num, denom);
+		return x;
 	}
 }
