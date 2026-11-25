@@ -8,6 +8,8 @@ public class FractionDriver {
         Fraction third = new Fraction(1, 3);
         Fraction product = Fraction.multiply(half, third);
         Fraction quotient = Fraction.divide(half, third);
+        Fraction sum = Fraction.add(half, third);
+        Fraction difference = Fraction.subtract(half, third);
         
         System.out.println(f1);
         System.out.println(f2);
@@ -17,5 +19,7 @@ public class FractionDriver {
         System.out.println(f4.toDouble());
 		System.out.println(product);
 		System.out.println(quotient);
+		System.out.println(sum);
+		System.out.println(difference);
     }
 }

@@ -4,8 +4,8 @@ public class Fraction {
 
     // constructors
     public Fraction() { // defalt constuctor
-        numerator = 1;
-        denominator = 2;
+        setNum((int) (Math.random() * 9 + 1));
+        setDenom((int) (Math.random() * 9 + 1));
     }
 
     public Fraction(int n, int d) { // parametoerized constructor
@@ -26,6 +26,7 @@ public class Fraction {
     }
 
     // behaviour methods (accessor, mutator, helper)
+    // (accessor Methods)
     public int getNum() {
         return numerator;
     }
@@ -44,6 +45,11 @@ public class Fraction {
         return n / d;
     }
     
+    public boolean equal(Fraction f) {
+		return numerator == f.getNum() && denominator == f.getDenom();
+	}
+    
+    // (Mutator Methods)
     public void setNum(int n){
 		numerator = n;
 	}
@@ -64,6 +70,9 @@ public class Fraction {
 		denominator = denominator / gcf;
 	}
 	
+	
+	
+	// (Helper Methods)
 	private static int gcf(int a, int b) {
 		a = Math.abs(a);
 		b = Math.abs(b);
@@ -78,6 +87,7 @@ public class Fraction {
 		return a;
 	}
 		
+	// Static methods
 	public static Fraction multiply(Fraction a, Fraction b) {
 		int num = a.getNum() * b.getNum();
 		int denom = a.getDenom() * b.getDenom();
@@ -96,6 +106,20 @@ public class Fraction {
 	}
 	
 	public static Fraction add(Fraction a, Fraction b) {
-		int num = a.getNum() * b.getDenom() + b.getNum() * a .getDenom()
+		int num = a.getNum() * b.getDenom() + b.getNum() * a .getDenom();
+		int denom = a.getDenom() * b.getDenom();
+		
+		Fraction r = new Fraction(num, denom);
+		r.reduce();
+		return r;
+	}
+	
+	public static Fraction subtract(Fraction a, Fraction b) {
+		int num = a.getNum() * b.getDenom() - b.getNum() * a .getDenom();
+		int denom = a.getDenom() * b.getDenom();
+		
+		Fraction r = new Fraction(num, denom);
+		r.reduce();
+		return r;
 	}
 }
